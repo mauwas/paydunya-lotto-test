@@ -1,0 +1,56 @@
+// 
+// _card.scss
+// 
+
+.card {
+    margin-bottom: $grid-gutter-width;
+    box-shadow: 0 2px 3px darken($body-bg, 5%);
+    border: none;
+}
+
+.card-drop {
+    color: $body-color;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.card-title-desc {
+    color: $card-title-desc;
+    margin-bottom: 0;
+}
+
+.card-h-100 {
+    height: calc(100% - #{$grid-gutter-width});
+}
+
+@mixin card-header-variant($bg) {
+    background-color: lighten($bg, 5%) !important;
+    border-bottom: none
+}
+
+@each $color,
+$value in $theme-colors {
+    .card-header.bg-#{$color} {
+        @include card-header-variant($value);
+    }
+}
+
+
+body[data-layout-mode="dark"] {
+
+    .card{
+        box-shadow: 0 2px 3px darken($gray-dark-200, 4%);
+    }
+
+    .card, .card-header, .card-footer,
+    .modal-content, .offcanvas {
+        background-color: $gray-dark-200;
+        border-color: lighten($gray-dark-200,4%);
+    }
+
+    .card-title-desc{
+        color: $gray-dark-400;
+    }
+}

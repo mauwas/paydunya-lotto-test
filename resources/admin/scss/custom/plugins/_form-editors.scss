@@ -1,0 +1,280 @@
+//
+// Form editors.scss
+//
+
+// CK Editor
+.ck {
+  &.ck-toolbar {
+      background-color: rgba($light, 0.75) !important;
+      border: 1px solid $input-border-color !important;
+
+      &.ck-toolbar_grouping > .ck-toolbar__items {
+          flex-wrap: wrap !important;
+      }
+
+      .ck.ck-toolbar__separator {
+          background: transparent !important;
+      }
+  }
+
+  &.ck-editor__main > .ck-editor__editable {
+      border-top: 0 !important;
+      background-color: $card-bg !important;
+      border-color: $input-border-color !important;
+      box-shadow: $box-shadow !important;
+  }
+
+  &.ck-dropdown__panel,
+  &.ck-list {
+      background: $dropdown-bg !important;
+      border: 1px solid $dropdown-border-color !important;
+      box-shadow: $box-shadow !important;
+  }
+
+  &.ck-reset_all,
+  &.ck-reset_all * {
+      color: $body-color !important;
+  }
+
+  &.ck-dropdown {
+      .ck-dropdown__panel {
+          &.ck-dropdown__panel_ne,
+          &.ck-dropdown__panel_se {
+              left: 0;
+              right: auto !important;
+          }
+      }
+  }
+
+  &.ck-editor__editable_inline {
+      &[dir="rtl"] {
+          text-align: left !important;
+      }
+  }
+}
+
+.ck-editor__editable {
+  min-height: 245px !important;
+}
+
+.ck,
+a.ck {
+  &.ck-button {
+      &.ck-on:not(.ck-disabled) {
+          &:hover,
+          &:active {
+              background: $light !important;
+              box-shadow: none !important;
+          }
+      }
+
+      &:focus,
+      &:active {
+          background: $light !important;
+          border-color: $light !important;
+      }
+  }
+}
+
+.ck.ck-tooltip .ck-tooltip__text {
+  background: $dark !important;
+  color: $light !important;
+}
+
+.ck.ck-toolbar .ck.ck-button.ck-on,
+a.ck.ck-button.ck-on,
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover {
+  background: rgba($light, 0.75) !important;
+}
+
+.ck.ck-list__item .ck-button .ck-button__label{
+ font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+// Dark layout
+body[data-layout-mode="dark"] {
+  .ck {
+    &.ck-toolbar {
+        background-color: $gray-dark-300 !important;
+        border-color: $gray-dark-300 !important;
+    }
+
+    &.ck-dropdown__panel,
+    &.ck-list {
+        background-color: lighten($gray-dark-200, 2.5%) !important;
+        border-color: lighten($gray-dark-200, 2.5%) !important;
+        box-shadow: $box-shadow !important;
+    }
+
+    &.ck-editor__main > .ck-editor__editable {
+        background-color: $gray-dark-200 !important;
+        border-color: $gray-dark-300 !important;
+    }
+
+    &.ck-icon :not([fill]) {
+        fill: $gray-dark-500 !important;
+    }
+
+    &.ck-reset_all,
+    &.ck-reset_all * {
+        color: $gray-dark-400 !important;
+    }
+    .ck-link-form,
+    .ck-input-text,
+    .ck-label {
+        background-color: lighten($gray-dark-200, 2.5%) !important;
+    }
+}
+
+    .ck,
+a.ck {
+    &.ck-button {
+        &:focus,
+        &:active {
+            border-color: $gray-dark-300 !important;
+        }
+    }
+}
+
+.ck.ck-toolbar .ck.ck-button.ck-on,
+a.ck.ck-button.ck-on,
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover {
+    background: rgba($gray-dark-400, 0.2) !important;
+}
+}
+
+[dir="rtl"]{
+  .ck.ck-toolbar>.ck-toolbar__items{
+    flex-direction: row-reverse;
+  }
+}
+
+
+//
+// quilljs-editor.scss
+//
+ 
+.ql-editor{
+  text-align: left;
+  ol, ul{
+    padding-left: 1.5em;
+    padding-right: 0;
+  }
+
+  li:not(.ql-direction-rtl)::before{
+    margin-left: -1.5em;
+    margin-right: 0.3em;
+    text-align: right;
+  }
+}
+
+.ql-container {
+  font-family: $font-family-base;
+
+  &.ql-snow {
+      border-color: $input-border-color;
+  }
+}
+
+.ql-bubble {
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+}
+
+.ql-toolbar {
+  font-family: $font-family-base !important;
+  span {
+      outline: none !important;
+      color: $dropdown-link-color;
+
+      &:hover {
+          color: $primary !important;
+      }
+  }
+
+  &.ql-snow {
+      border-color: $input-border-color;
+
+      .ql-picker.ql-expanded {
+          .ql-picker-label {
+              border-color: transparent;
+          }
+      }
+
+      .ql-picker-options{
+        box-shadow: $dropdown-box-shadow;
+        border-radius: $dropdown-border-radius;
+      }
+  }
+}
+
+.ql-snow {
+  .ql-stroke,
+  .ql-script,
+  .ql-strike svg {
+      stroke: $dropdown-link-color;
+  }
+  .ql-fill {
+      fill: $dropdown-link-color;
+  }
+
+  .ql-picker:not(.ql-color-picker):not(.ql-icon-picker){
+    svg{
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .ql-picker{
+    &.ql-expanded .ql-picker-label{
+      color: $dropdown-link-color;
+    }
+  }
+}
+
+.ql-snow {
+  .ql-picker-options {
+      background-color: $dropdown-bg;
+      border-color: $dropdown-border-color !important;
+  }
+}
+
+// Dark layout
+body[data-layout-mode="dark"] {
+
+  .ql-container, .ql-toolbar{
+    &.ql-snow{
+      border-color: $gray-dark-300;
+    }
+  }
+
+  .ql-toolbar{
+    span{
+      color: $gray-dark-500;
+    }
+  }
+
+  .ql-snow {
+    .ql-script, .ql-strike svg, .ql-stroke{
+      stroke: $gray-dark-500;
+    }
+
+    .ql-picker.ql-expanded .ql-picker-label{
+      color: $gray-dark-500;
+    }
+
+    .ql-picker-options{
+      background-color: $gray-dark-300;
+      border-color: $gray-dark-300 !important;
+    }
+  }
+
+  .ql-bubble{
+    border-color: $gray-dark-300;
+    .ql-tooltip{
+      background-color: $gray-dark-300;
+    }
+  }
+}

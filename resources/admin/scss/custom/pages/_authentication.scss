@@ -1,0 +1,175 @@
+// 
+// authentication.scss
+//
+
+
+// auth logo
+body[data-topbar="dark"] {
+.auth-logo{
+    .logo-txt{
+        color: $dark !important;
+    }
+}
+}
+
+
+
+// authentication home icon
+
+
+.home-btn {
+    position: fixed;
+    top: 15px;
+    right: 25px;
+}
+
+.authentication-bg{
+    background-image: url("../images/auth-bg-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .auth-logo{
+        .logo{
+            margin: 0px auto;
+        }
+
+        .auth-logo-light{
+            display: none;
+            margin: 0px auto;
+        }
+
+        .auth-logo-dark{
+            margin: 0px auto;
+        }
+    }
+
+    .bg-overlay{
+        background-color: $header-dark-bg;
+    }
+
+    .auth-cover-card{
+        .authentication-bg{
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .bg-overlay{
+            opacity: 0.6;
+        }
+
+        .form-floating{
+            label{
+                color: rgba($white, 0.5);
+            }
+            .form-control{
+                background-color: rgba($white, 0.1);
+                border-color: rgba($white, 0.1);
+                color: $white;
+            }
+
+            .form-floating-icon{
+                color: rgba($white, 0.5);
+            }
+        }
+    }
+}
+.form-floating-custom{
+    position: relative;
+    >label{
+        left: 48px;
+    }
+    >.form-control, >.form-select{
+        padding-left: 60px;
+    }
+    .form-floating-icon{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        width: 56px;
+        color: $text-muted;
+    }
+}
+
+// error page
+.error-font {
+    font-size: 9rem;
+    text-shadow: 4px 4px 6px rgba($gray-900, 0.26);
+}
+
+.mover-animation {
+    animation: mover 1s infinite alternate;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+// signin card title
+
+.signin-other-title{
+    position: relative;
+    &:after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        right: 0;
+        background-color: $border-color;
+        top: 10px;
+    }
+
+    .title{
+        display: inline-block;
+        position: relative;
+        z-index: 9;
+        background-color: $card-bg;
+        padding: 2px 16px;
+    }
+}
+
+
+// Auth Pages
+.auth-img{
+  background-image: url("https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  @media (max-width: 991.98px) {
+      height: 250px;
+  }
+}
+
+body[data-layout-mode="dark"] {
+    .authentication-bg{
+        background-image: url("../images/auth-bg-dark.jpg");
+
+        .bg-overlay{
+            opacity: 0.1;
+        }
+
+        .auth-logo{
+    
+            .auth-logo-dark{
+                display: none;
+            }
+            .auth-logo-light{
+                display: block;
+            }
+        }
+    }
+}

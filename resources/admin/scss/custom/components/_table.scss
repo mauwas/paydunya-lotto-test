@@ -1,0 +1,117 @@
+// 
+// _table.scss
+// 
+
+
+.table {
+    th {
+        font-weight: $table-th-font-weight;
+    }
+
+    .table-light {
+        color: $body-color;
+        border-color: $table-border-color;
+        background-color: $table-head-bg;
+    }
+}
+
+
+.table-nowrap {
+    th,
+    td {
+        white-space: nowrap;
+    }
+}
+
+.table-dark>:not(:last-child)>:last-child>*{
+  border-bottom-color:  $table-dark-border-color;
+}
+
+
+.table>:not(:first-child){
+  border-top: (0 * $table-border-width) solid $table-group-separator-color;
+}
+
+
+
+
+.table-responsive{
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+  
+    &::-webkit-scrollbar:vertical {
+      width: 12px;
+    }
+  
+    &::-webkit-scrollbar:horizontal {
+      height: 9px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($dark, .2);
+      border-radius: 10px;
+      border: 2px solid $white;
+    }
+  
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;  
+      background-color: $white; 
+    }
+}
+
+body[data-layout-mode="dark"] {
+  // table 
+  .table {
+      border-color: lighten($gray-dark-200,5%);
+      color: $gray-dark-400;
+  }
+
+  .table-bordered {
+    border-color: $gray-dark-300;
+  }
+
+  .table>:not(:last-child)>:last-child>* {
+      border-bottom-color: $gray-dark-300;
+  }
+
+  .table-striped>tbody>tr:nth-of-type(odd){
+    --bs-table-accent-bg: #09283d;
+    color: $gray-dark-400;
+  }
+  
+  .table-striped>tbody>tr:nth-of-type(odd)>*,
+  .table-hover>tbody>tr:hover>*,
+  .table .table-light {
+    --bs-table-accent-bg: #09283d;
+      color: $gray-dark-400;
+  }
+
+  // table
+  .table-dark{
+    background-color: $gray-dark-300;
+    >:not(caption)>*>*{
+        background-color: $gray-dark-300;
+    }
+  }
+
+  .table-active{
+    background-color: lighten($gray-dark-200,2%) !important;
+    color: $gray-dark-400;
+    th, td{
+      background-color: lighten($gray-dark-200,2%);
+    }
+  }
+
+  .table-responsive{
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($white, .075);
+      border: 2px solid $gray-dark-200;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: $gray-dark-200; 
+    }
+  }
+}

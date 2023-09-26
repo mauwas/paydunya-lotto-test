@@ -1,0 +1,1 @@
+!function(){var e=1;document.querySelectorAll(".two-step").forEach((function(t){t.addEventListener("keyup",(function(t){0==e&&(e=1),8===t.keyCode?(5==e&&(e=3),document.querySelector("#digit"+e+"-input")&&document.querySelector("#digit"+e+"-input").focus(),e--):e>0&&(e++,document.querySelector("#digit"+e+"-input")&&document.querySelector("#digit"+e+"-input").focus())}))}))}();

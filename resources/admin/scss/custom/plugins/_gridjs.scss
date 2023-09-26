@@ -1,0 +1,198 @@
+// 
+// Datatables.scss
+// 
+
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+}
+
+// gridjs-table
+
+.gridjs-container{
+  color: $table-color;
+}
+
+.gridjs-head{
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.gridjs-wrapper{
+  box-shadow: none;
+  border: none;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+  &::-webkit-scrollbar:vertical {
+      width: 12px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+      height: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: rgba($dark, .075);
+      border-radius: 10px;
+      border: 2px solid $card-bg;
+  }
+
+  &::-webkit-scrollbar-track {
+      border-radius: 10px;  
+      background-color: $card-bg; 
+  }
+}
+
+.gridjs-table{
+  width: 100%;
+}
+
+th.gridjs-th, 
+td.gridjs-td{
+  border: 0px solid $table-border-color;
+  border-bottom-width: 1px;
+  padding: .75rem .75rem;;
+}
+
+th{
+  &.gridjs-th{
+    border-top: 0;
+    color: $table-color;
+    background-color: $table-head-bg;
+
+  }
+
+  &.gridjs-th-sort{
+    &:focus, &:hover{
+      background-color: darken($table-head-bg, 2%);
+    }
+  }
+}
+
+.gridjs-footer{
+  box-shadow: none;
+  border: none;
+  border-top: 0;
+}
+
+.gridjs-pagination{
+  color: $pagination-color;
+
+  .gridjs-pages button{
+    border: none !important;
+    border-radius: 30px!important;
+    margin: 0 5px;
+    border: none;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+    line-height: 32px;
+
+    
+
+    &:disabled, 
+    &:hover:disabled, 
+    &[disabled]{
+      color: $pagination-disabled-color;
+    }
+
+    &:hover{
+      background-color: $pagination-hover-bg;
+      color: $pagination-hover-color;
+    }
+
+    &:focus{
+      box-shadow: none;
+    }
+
+    &:last-child, &:first-child{
+      &:hover{
+        background-color: transparent;
+      }
+    }
+    &.gridjs-currentPage{
+      background-color: $pagination-active-bg;
+      color: $pagination-active-color;
+      font-weight: 500;
+      border-color: $pagination-active-border-color;
+    }
+  }
+}
+
+input.gridjs-input{
+  border-color: $input-border-color;
+  background-color: $input-bg;
+  color: $input-color;
+  font-size: 13px;
+  &:focus{
+    box-shadow: none;
+    border-color: $input-focus-border-color;
+    background-color: $input-focus-bg;
+  }
+}
+
+
+body[data-layout-mode="dark"] {
+
+  .gridjs-container{
+    color: $gray-dark-400;
+  }
+
+  .gridjs-wrapper{
+    border-color: $gray-dark-300;
+    
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba($white, .075);
+        border: 2px solid $gray-dark-200;
+      }
+    
+      &::-webkit-scrollbar-track {
+        background-color: $gray-dark-200; 
+      }
+  }
+
+
+  input.gridjs-input{
+    color: $gray-dark-500;
+    background-color: lighten($gray-dark-200,2%);
+    border: 1px solid $gray-dark-300;
+    &::placeholder{
+      color: $gray-dark-400;
+    }
+  }
+
+  th.gridjs-th{
+    background-color: lighten($gray-dark-200,2%);
+    color: $gray-dark-500;
+  }
+
+  td.gridjs-td, th.gridjs-th{
+    border-color: $gray-dark-300;
+  }
+
+  .gridjs-tbody, td.gridjs-td{
+    background-color: $gray-dark-200;
+  }
+
+  .gridjs-footer{
+    background-color: $gray-dark-200;
+    border-color: $gray-dark-300;
+  }
+
+  .gridjs-pagination{
+    color: $gray-dark-400;
+    .gridjs-pages button{
+      background-color: $gray-dark-200;
+      color: $gray-dark-400;
+      &.gridjs-currentPage{
+        background-color: $pagination-active-bg;
+        color: $pagination-active-color;
+        border-color: $pagination-active-border-color;
+      }
+    }
+  }
+}

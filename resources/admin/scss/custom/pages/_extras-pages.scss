@@ -1,0 +1,92 @@
+// 
+// Extras pages.scss
+//
+
+
+
+// profile
+
+.profile-bg{
+    height: 210px;
+    background-image: url("../images/profile-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// pricing
+
+.pricing-box{
+    border-top: 2px solid $primary !important;
+    max-width: 388px;
+    margin: 0px auto 20px;
+
+    .plan-features{
+        li{
+            padding: 7px 0px;
+        }
+    }
+}
+
+// error
+
+.error-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 130px;
+    @media (max-width: 1199.98px){
+        font-size: 72px;
+
+        .avatar-lg{
+            width: 48px;
+        }
+    }
+}
+
+body[data-layout-mode="dark"] {
+
+    .categories-filter{
+        .list-inline-item{
+            a{
+                color: $gray-dark-500;
+                &.active{
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .gallery-box .box-content{
+        background-color: $gray-dark-200;
+    }
+}
+
+
+
+.profile-user{
+    background-image: url(../images/profile-bg-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0px;
+    position: relative;
+    &:after{
+    background: linear-gradient(to bottom, rgba($primary, 0.7) 30%, $primary 100%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    content: "";
+
+    }
+}
+
+.profile-content{
+    position: relative;
+    margin-top: -60px;
+}

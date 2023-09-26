@@ -1,0 +1,19 @@
+//
+// carousel.scss
+//
+
+.carousel-control-prev,
+.carousel-control-next {
+    height: 30px;
+    width: 30px;
+    margin: auto 0;
+    background-color: $primary;
+}
+
+.carousel-dark .carousel-caption{
+    color: rgba($black, 0.8);
+    .h1, .h2, .h3, .h4, .h5, .h6, 
+    h1, h2, h3, h4, h5, h6{
+        color: rgba($black, 0.8);
+    }
+}

@@ -1,0 +1,171 @@
+
+//
+// alertify.scss
+//
+
+
+.alertify {
+    .ajs-header{
+        font-weight: $font-weight-medium;
+        font-size: 16px;
+        position: relative;
+        color: $gray-700;
+    }
+    .ajs-dialog{
+        box-shadow: $box-shadow;
+        background-color: $modal-content-bg;
+        border-radius: $modal-content-border-radius;
+        overflow: hidden;
+
+        .ajs-header, .ajs-footer{
+            background-color: $modal-content-bg;
+        }
+    }
+
+    .ajs-body{
+        color: $body-color;
+    }
+
+    .ajs-footer {
+        .ajs-buttons {
+            .ajs-button{
+                font-size: 13px;
+                color: $gray-700;
+                font-weight: $font-weight-medium;
+                &.ajs-ok{
+                    color: $primary;
+                }
+            }
+
+            &.ajs-primary{
+                text-align: right;
+            }
+        }
+    }
+
+    .ajs-body .ajs-content {
+        padding: 16px 0px;
+        .ajs-input:focus-visible{
+            outline: none;
+        }
+
+        .ajs-input{
+            display: block;
+            width: 100%;
+            padding: $input-padding-y $input-padding-x;
+            line-height: $input-line-height;
+            color: $input-color;
+            background-color: $input-bg;
+            border: $input-border-width solid $input-border-color;
+            border-radius: $input-border-radius;
+        }
+    }
+
+    .ajs-commands{
+        top: 16px;
+        right: 16px;
+        left: auto;
+        margin: 0;
+
+        button{
+            width: $btn-close-width;
+            height: $btn-close-height;
+            padding: $btn-close-padding-y $btn-close-padding-x;
+            background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat !important; // include transparent for button elements
+            opacity: $btn-close-opacity;
+        }
+    }
+}
+
+
+.alertify-notifier {
+    .ajs-message{
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+        text-shadow: none !important;
+        border-radius: 4px;
+        &.ajs-success{
+            background-color: $success;
+            border-color: $success;
+        }
+        &.ajs-error{
+            background-color: $danger;
+            border-color: $danger;
+        }
+        &.ajs-warning{
+            background-color: $warning;
+            border-color: $warning;
+        }
+    }
+
+
+    &.ajs-right {
+        right: 10px;
+        left: auto;
+        .ajs-message {
+            right: -320px;
+            left: auto;
+            &.ajs-visible {
+                right: 290px;
+                left: auto;
+            }
+        }
+    }
+
+    &.ajs-left {
+        left: 10px;
+        right: auto;
+        .ajs-message {
+            left: -300px;
+            right: auto;
+            &.ajs-visible {
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+}
+
+
+body[data-layout-mode="dark"] {
+
+    .alertify {
+        .ajs-dialog{
+            background-color: $gray-dark-200;
+        }
+
+        .ajs-header, .ajs-footer{
+            color: $gray-dark-600;
+            background-color: $gray-dark-200;
+            border-color: $gray-dark-300;
+        }
+
+        .ajs-body{
+            color: $gray-dark-500;
+            .ajs-content{
+                .ajs-input{
+                    color: $gray-dark-500;
+                    background-color: lighten($gray-dark-200, 2%);
+                    border: 1px solid $gray-dark-300;
+                }
+            }
+        }
+
+        .ajs-footer{
+            .ajs-buttons .ajs-button{
+                color: $gray-dark-500;
+                &.ajs-ok{
+                    color: $primary;
+                }
+            }
+        }
+
+        .ajs-commands{
+    
+            button{
+                background: transparent escape-svg($btn-close-bg-dark) center / $btn-close-width auto no-repeat !important; // include transparent for button elements
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+// 
+// _popover.scss
+//
+
+.popover {
+    box-shadow: $popover-box-shadow;
+}
+
+
+//dark mode
+body[data-layout-mode="dark"]{
+    .popover{
+        background-color: $gray-dark-200 !important;
+        border-color: lighten($gray-dark-200, 2.5%) !important;
+        .popover-header{
+            background-color:lighten($gray-dark-200, 1.5%);
+            color: $gray-300;
+            border-bottom: lighten($gray-dark-200, 2.5%);
+        }
+    }
+}

@@ -1,0 +1,115 @@
+// 
+// timeline.scss
+//
+// 
+// timeline.scss
+//
+
+/************** Horizontal timeline **************/ 
+
+
+.hori-timeline{
+    .events{
+
+        .event-list{
+            text-align: center;
+            display: block;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 48px;
+                left: 0;
+                right: 0;
+                width: 10px;
+                height: 10px;
+                margin: 0 auto;
+                border-radius: 50%;
+                border: 2px solid $primary;
+                background-color: $card-bg;
+            }
+
+            &:before{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 52px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                border-top: 3px dashed $gray-300;
+            }
+
+            .event-date{
+                display: inline-block;
+                position: relative;
+                border-radius: 4px;
+                background-color: rgba($primary, 0.2);
+                padding: 2px 12px;
+                margin-bottom: 48px;
+            }
+
+        }
+    }
+}
+
+
+/************** vertical timeline **************/ 
+
+.verti-timeline{
+    padding-left: 100px;
+    .event-list{
+        border-left: 3px dashed $gray-300;
+        position: relative;
+        padding: 0px 0px 30px 30px;
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 6px;
+            left: -6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid $primary;
+            background-color: $card-bg;
+        }
+
+
+        .event-date{
+            display: inline-block;
+            border-radius: 4px;
+            background-color: rgba($primary, 0.2);
+            color: $primary;
+            padding: 2px 12px;
+            position: absolute;
+            left: -102px;
+            font-size: 13px;
+        }
+
+        &:last-child{
+            padding-bottom: 0;
+        }
+    }
+}
+
+body[data-layout-mode="dark"] {
+    .hori-timeline{
+        .events{
+            .event-list{
+                &:before{
+                    border-top: 3px dashed $gray-dark-300;
+                }
+            }
+        }
+    }
+
+    .verti-timeline{
+        padding-left: 100px;
+        .event-list{
+            border-left: 3px dashed $gray-dark-300;
+        }
+    }
+}

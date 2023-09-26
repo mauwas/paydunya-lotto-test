@@ -1,0 +1,42 @@
+// 
+// _footer.scss
+// 
+
+.footer {
+    bottom: 0;
+    padding: 20px calc(#{$grid-gutter-width} / 2);
+    position: absolute;
+    right: 0;
+    color: $footer-color;
+    left: 255px;
+    height: $footer-height;
+    background-color: $card-bg;
+}
+  
+@media (max-width: 992px) {
+    .footer {
+        left: 0;
+    }
+}
+
+// Enlarge menu
+body[data-sidebar-size="sm"] {
+    .footer {
+        left: $sidebar-collapsed-width;
+    }
+}
+
+body[data-layout="horizontal"] {
+    .footer {
+        left: 0 !important;
+    }  
+}
+
+body[data-layout-mode="dark"]{
+    .footer{
+        background-color: $gray-dark-200;
+        box-shadow: 0 0px 4px rgba($gray-dark-600,.12);
+        color: $gray-dark-400;
+    }
+}
+

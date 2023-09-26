@@ -1,0 +1,49 @@
+// 
+// _badge.scss
+// 
+
+
+// Soft badge
+@mixin badge-variant-soft($bg) {
+    color: $bg;
+    background-color: rgba($bg, 0.1);
+}
+
+@each $color,
+$value in $theme-colors {
+    .badge-soft-#{$color} {
+        @include badge-variant-soft($value);
+    }
+}
+
+// Outline badge
+@mixin badge-variant-outline($bg) {
+    color: $bg;
+    border: 1px solid $bg;
+    background-color: transparent;
+}
+
+@each $color,
+$value in $theme-colors {
+    .badge-outline-#{$color} {
+        @include badge-variant-outline($value);
+    }
+}
+
+.badge{
+    &.bg-light, &.badge-soft-light, &.badge-outline-light{
+        color: $dark;
+    }
+}
+
+body[data-layout-mode=dark]{
+    .badge{
+        &.bg-light, &.badge-soft-light, &.badge-outline-light{
+            color: $gray-dark-500;
+        }
+    }
+
+    .badge-soft-dark{
+        color: $gray-dark-500;
+    }
+}

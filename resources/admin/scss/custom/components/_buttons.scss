@@ -1,0 +1,208 @@
+// 
+// _buttons.scss
+// 
+
+button,
+a {
+    outline: none !important;
+}
+
+.btn{
+    border-color: transparent !important;
+}
+//
+// Soft Buttons
+// 
+
+@mixin button-variant-soft($bg) {
+    color: $bg;
+    background-color: rgba($bg, 0.1);
+    border-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $white;
+        background-color: $bg;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 $btn-focus-width rgba($bg, 0.5);
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .btn-soft-#{$color} {
+        @include button-variant-soft($value);
+    }
+}
+
+// Soft Light button
+.btn-soft-light {
+    color: $gray-600;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $gray-800;
+    }
+}
+
+// Soft Light button
+.btn-outline-light {
+    color: $dark;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $dark;
+    }
+}
+
+//
+// Split Dropdown buttons
+// 
+
+@mixin button-variant-split($bg) {
+    background-color: lighten($bg, 5%);
+    border: none;
+}
+
+@each $color,
+$value in $theme-colors {
+    .btn-#{$color}.dropdown-toggle-split {
+        @include button-variant-split($value);
+    }
+}
+
+.btn-light.dropdown-toggle-split {
+    background-color: darken($light, 3%);;
+}
+
+// Rounded Buttons
+.btn-rounded {
+    border-radius: 30px;
+}
+
+
+// example 1
+
+.btn-group-example {
+    .btn {
+        position: relative;
+
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+
+        &:before {
+            content: "OR";
+            position: absolute;
+            font-size: 10px;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            border-radius: 50%;
+            background-color: $gray-600;
+            color: $light;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    }
+}
+
+
+// Example 2
+
+.btn-label {
+    position: relative;
+    padding-left: 44px;
+    border: none;
+
+    .label-icon {
+        position: absolute;
+        width: 32px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba($white, 0.15);
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.btn-light{
+        .label-icon {
+            background-color: rgba($dark, 0.1);
+        }
+    }
+
+    &.btn-soft-light {
+        .label-icon {
+            background-color: rgba($dark, 0.05);
+        }
+    }
+}
+
+
+body[data-layout-mode="dark"] {
+    
+    // buttons 
+    .btn-light {
+        color: $gray-dark-600;
+        background-color: $gray-dark-300;
+        border-color: $gray-dark-300 !important;
+    }
+
+    .btn-outline-light{
+        color: $gray-dark-500;
+        border-color: $gray-dark-300;
+        &:hover{
+            color: $gray-dark-500;
+            background-color: $gray-dark-300;
+            border-color: $gray-dark-300;
+        }
+    }
+
+    .btn-check:focus+.btn-light, 
+    .btn-light:focus,
+    .btn-check:focus+.btn-dark, 
+    .btn-dark:focus,
+    .btn-check:focus+.btn-outline-light, 
+    .btn-outline-light:focus{
+        box-shadow: 0 0 0 $btn-focus-width rgba($gray-dark-300, .5);
+    }
+
+    .btn-soft-dark, .btn-outline-dark{
+        color: $gray-dark-600;
+    }
+
+    // buttons 
+    .btn-dark {
+        background-color: lighten($gray-dark-200,2%);
+        border-color: lighten($gray-dark-200,2%);
+    }
+
+    .btn-outline-dark{
+        border-color: lighten($gray-dark-200,2%);
+        &:hover{
+            background-color: lighten($gray-dark-200,2%);
+            border-color: lighten($gray-dark-200,2%);
+        }
+    }
+
+    .btn-soft-dark{
+        background-color: rgba($gray-dark-200,0.25);
+        border-color: rgba($gray-dark-200,0.25);
+        &:hover{
+            background-color: lighten($gray-dark-200,2%);
+            border-color: lighten($gray-dark-200,2%);
+        }
+    }
+}
