@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
                 <h1>Loto en ligne : votre billet vers la richesse est à portée de clic. <i class="fas fa-hand-point-right"></i></h1>
-                <h2>Les prochains tirages sont prévus pour le Mardi, {{  $tuesday->format('d/m/Y') }} et le vendredi, {{  $friday->format('d/m/Y') }} à 12h</h2>
+                <h2>Les prochains tirages sont prévus pour le Mardi, {{ $tuesday->format('d/m/Y') }} et le vendredi, {{  $friday->format('d/m/Y') }} à 12h</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
                     <a href="{{ url('results') }}" class="btn-get-started scrollto">Vérifier votre ticket</a>
                 </div>
@@ -17,6 +17,11 @@
                             @foreach($draw->winning_numbers as $number)
                                 <div class="number">{{ $number }}</div>
                             @endforeach
+                        </div>
+                    @endif
+                    @if($jackpot)
+                        <div class="section-title mt-5">
+                            <h2>Jackpot : {{ $jackpot->amount }} FR CFA</h2>
                         </div>
                     @endif
                 {{-- <img src="{{ asset('front/assets/img/hero-img.png') }}" class="img-fluid animated" alt=""> --}}
@@ -161,9 +166,9 @@
                             <li><i class="bx bx-check"></i> 1 Tirage</li>
                         </ul>
                         @guest
-                            <a href="{{  url('/login') }}" class="buy-btn">Parier</a>
+                            <a href="{{ url('/login') }}" class="buy-btn">Parier</a>
                         @else
-                            <a href="{{ url('buy-ticket') }}" class="buy-btn">Parier</a>
+                            <a href="{{ url('/buy-ticket') }}" class="buy-btn">Parier</a>
                         @endguest
                         </div>
                     </div>

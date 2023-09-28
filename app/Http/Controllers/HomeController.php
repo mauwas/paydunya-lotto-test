@@ -30,7 +30,6 @@ class HomeController extends Controller
      */
     public function results(Request $request)
     {
-
         return view('results')->with($this->homeService->results($request->all()));
     }
 }

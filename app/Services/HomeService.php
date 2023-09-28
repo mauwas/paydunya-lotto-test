@@ -17,6 +17,7 @@ class HomeService
             'draw' => Draw::latest()->first(),
             'tuesday' => $dateCurrent->next(Carbon::TUESDAY)->copy(),
             'friday' => $dateCurrent->next(Carbon::FRIDAY)->copy(),
+            'jackpot' => (new LottoService())->jackpot(),
         ];
     }
 
@@ -25,7 +26,7 @@ class HomeService
         $response = [];
         $response['draws'] = Draw::with('drawTickets')->latest()->paginate(8);
 
-        if ($data['ticket'] && ! is_null($data['ticket'])) {
+        if (is_array($data) && isset($data['ticket'])) {
             $response['ticket'] = Ticket::where('code', $data['ticket'])->first();
         }
 

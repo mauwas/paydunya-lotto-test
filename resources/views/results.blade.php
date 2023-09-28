@@ -17,29 +17,36 @@
                         <label for="ticket">Status ticket :</label>
                         <input type="text" name="ticket" value="{{ old('ticket') }}" placeholder="Code ticket">
                         <button type="submit">Vérifier</button> 
-                        @if($ticket && $ticket->drawTicket && $ticket->drawTicket->is_winner) 
-                            <span class="badge text-success bg-success-subtle font-size-12">Félicitation !. Votre ticket fait partie des heureux gagnant</span>
-                        @endif
-                        @if($ticket && $ticket->drawTicket && !$ticket->drawTicket->is_winner)
-                            <span class="badge text-danger bg-danger-subtle font-size-12">Oups vous ne faite pas partie des heureux gagnant</span>
-                        @endif
-                
+                        @isset($ticket)
+                            @if($ticket && $ticket->drawTicket && $ticket->drawTicket->is_winner) 
+                                <span class="badge text-success bg-success-subtle font-size-12">Félicitation !. Votre ticket fait partie des heureux gagnant</span>
+                            @endif
+                            @if($ticket && $ticket->drawTicket && !$ticket->drawTicket->is_winner)
+                                <span class="badge text-danger bg-danger-subtle font-size-12">Oups vous ne faite pas partie des heureux gagnant</span>
+                            @endif
+                            @if($ticket && empty($ticket->drawTicket))
+                                <span class="badge text-primary bg-primary-subtle font-size-12">Le tirage n'est pas encore effectué. Veuillez revenir plus tard pour vérifier votre ticket.</span>
+                            @endif
+                        @endisset
                     </form>
                 </div>
 
                 <div class="row">
-                    @foreach ($draws as $draw)
-                        <div class="col-xl-3 col-md-3 mb-3 d-flex align-items-stretch">
-                            <div class="icon-box">
-                                <h4><a href="#">Tirage du : {{ $draw->draw_date->format('d/m/y') }}</a></h4>
-                                <p>Gagnants : [{{ implode(', ', $draw->winning_numbers) }}]</p>
-                                <p>Total participants : {{ count($draw->drawTickets) }}</p>
+                    @if($draws->isNotEmpty())
+                        @foreach ($draws as $draw)
+                            <div class="col-xl-3 col-md-3 mb-3 d-flex align-items-stretch">
+                                <div class="icon-box">
+                                    <h4><a href="#">Tirage du : {{ $draw->draw_date->format('d/m/y') }}</a></h4>
+                                    <p>Gagnants : [{{ implode(', ', $draw->winning_numbers) }}]</p>
+                                    <p>Total participants : {{ count($draw->drawTickets) }}</p>
+                                </div>
                             </div>
+                        @endforeach
+                        <div class="mt-5">
+                            {{ $draws->links() }}
                         </div>
-                    @endforeach
-                    <div class="mt-5">
-                        {{ $draws->links() }}
-                    </div>
+
+                    @endif
                 </div>
 
             </div>
