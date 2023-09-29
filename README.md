@@ -45,7 +45,14 @@ npm run dev
 Créez un fichier .env en copiant .env.example et configurez-le avec les informations de votre environnement, telles que les informations de base de données et les clés d'application :
 
 ```bash
-# Les informations nécessaires pour faire fonctionner les APIs de PayDunya 
+# Renseigner les paramètres SMTP pour l'envoie des notifications par email
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025 
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+# Les informations nécessaires pour faire fonctionner les APIs de PayDunya
 PAYDUNYA_MASTER_KEY="" # votre clé master de paydunya
 PAYDUNYA_PRIVATE_KEY="" # votre clé private de paydunya 
 PAYDUNYA_PUBLIC_KEY="" # votre clé public de paydunya
