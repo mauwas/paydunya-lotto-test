@@ -1,66 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Guide d'installation de PayDunya Lotto
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ce guide vous explique comment déployer PayDunya Lotto sur un serveur web.
 
-## About Laravel
+## Prérequis
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Assurez-vous que votre serveur web dispose des éléments suivants avant de commencer le déploiement :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP (version recommandée : 8.1 ou supérieure)
+- [Composer](https://getcomposer.org/)
+- Serveur web (Apache, Nginx, etc.)
+- Système de gestion de bases de données (MySQL, PostgreSQL, etc.)
+- [Git](https://git-scm.com/) (pour cloner le dépôt)
+- npm et node pour l'installation des dépendances javascript 
+- [Les prérequis pour le bon fonctionnement du framework laravel](https://laravel.com/docs/10.x/deployment#server-requirements) 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Étapes de déploiement en local
 
-## Learning Laravel
+### 1. Cloner le dépôt
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clonez le dépôt du projet paydunya-lotto-test depuis le lien GitHub vers votre serveur en utilisant la commande Git :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+git clone https://github.com/mauwas/paydunya-lotto-test.git
+```
+### 2. Accéder au répertoire du projet
+Accédez au répertoire du projet paydunya-lotto-test :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+cd paydunya-lotto-test
+```
+### 3. Installation les dépendances
+Utilisez Composer et npm pour installer les dépendances :
 
-## Laravel Sponsors
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+composer install
+npm install 
+npm run dev
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 4. Configuration de l'environnement
+Créez un fichier .env en copiant .env.example et configurez-le avec les informations de votre environnement, telles que les informations de base de données et les clés d'application :
 
-### Premium Partners
+```bash
+# Les informations nécessaires pour faire fonctionner les APIs de PayDunya 
+PAYDUNYA_MASTER_KEY="" # votre clé master de paydunya
+PAYDUNYA_PRIVATE_KEY="" # votre clé private de paydunya 
+PAYDUNYA_PUBLIC_KEY="" # votre clé public de paydunya
+PAYDUNYA_TOKEN="" # votre clé token de paydunya
+PAYDUNYA_MODE=test # le mode
+```
+Générez ensuite une nouvelle clé d'application :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+php artisan key:generate
+```
+### 5. Migration de la base de données
 
-## Contributing
+Exécutez les migrations pour créer les tables de base de données :
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+php artisan migrate
+```
+Initialisation de la cagnote à 20.000.000 fr
 
-## Code of Conduct
+```bash
+# Copiez cette commande et exécutez-la dans votre terminal
+php artisan db:seed
+```
+### 6. Lancement de l'application
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Exécutez l'application PayDunya Lotto en mode test
 
-## Security Vulnerabilities
+```bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan serve # démarrer et lancement de l'application
+php artisan queue:work # lancement manuel du service de gestion de file d'attente
+php artisan app:draw # lancement manuel du script de lancmeent tirage au sort
+```
